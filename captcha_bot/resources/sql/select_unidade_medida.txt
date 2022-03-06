@@ -1,0 +1,4 @@
+SELECT [IdUnidadeDeMedida]
+      ,[Codigo]
+FROM [dbo].[UnidadeDeMedida]
+WHERE [UnidadeDeMedida].[Codigo] = 'unidade_medida_cod'

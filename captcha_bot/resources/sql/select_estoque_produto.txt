@@ -1,0 +1,4 @@
+SELECT TOP (1000) [Quantidade]
+  FROM [dbo].[Estoque]
+ WHERE [IdProduto] = 'idProduto'
+   AND [IdUsuario] = 'idUsuario'

@@ -1,0 +1,10 @@
+INSERT INTO [dbo].[Estoque]
+           ([IdEstoque]
+           ,[Quantidade]
+           ,[IdProduto]
+           ,[IdUsuario])
+     VALUES
+           (NEWID()
+           ,novaQuantidade
+           ,'idProduto'
+           ,'idUsuario')

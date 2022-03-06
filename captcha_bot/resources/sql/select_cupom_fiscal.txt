@@ -1,0 +1,5 @@
+SELECT [IdCupomFiscal] 
+      ,[NumeroNota]
+      ,[IdUsuario]
+FROM  [dbo].[CupomFiscal]
+WHERE [Processado] = 0
