@@ -1,3 +1,0 @@
-SELECT [IdProduto]
-      ,[EAN]
-  FROM [dbo].[Produto]

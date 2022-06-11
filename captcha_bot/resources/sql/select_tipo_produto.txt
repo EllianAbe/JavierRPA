@@ -1,4 +1,0 @@
-SELECT TOP (1000) [IdTipoProduto]
-      ,[Nome]
-      ,[Descricao]
-  FROM [dbo].[TipoProduto]

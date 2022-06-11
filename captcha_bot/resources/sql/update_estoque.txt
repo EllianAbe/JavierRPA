@@ -1,4 +1,0 @@
-UPDATE [dbo].[Estoque]
-   SET [Quantidade] = novaQuantidade
-WHERE [IdProduto] = 'idProduto'
-  AND [IdUsuario] = 'idUsuario'

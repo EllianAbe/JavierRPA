@@ -1,6 +1,0 @@
-INSERT INTO [dbo].[TipoProduto]
-           ([Nome]
-           ,[Descricao])
-     VALUES
-           ('Molho de tomate'
-           ,'Molho de tomate')

@@ -1,6 +1,0 @@
-INSERT INTO [dbo].[UnidadeDeMedida]
-           ([IdUnidadeDeMedida],
-	    [Codigo],
-	    [Nome])
-     VALUES
-           (newID(), 'unidade_medida_cod', 'unidade_medida_cod')
