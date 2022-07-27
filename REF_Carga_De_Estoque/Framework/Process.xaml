@@ -1,0 +1,269 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Process" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mca="clr-namespace:Microsoft.CSharp.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property sap2010:Annotation.AnnotationText="Transaction item to be processed." Name="in_TransactionItem" Type="InArgument(ui:QueueItem)" />
+    <x:Property sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="in_EANProduto" Type="InArgument(scg:List(scg:Dictionary(x:String, x:Object)))" />
+  </x:Members>
+  <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
+  <sap:VirtualizedContainerService.HintSize>1278.22222222222,1970.66666666667</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="62">
+      <x:String>System</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Text</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.ExtractData</x:String>
+      <x:String>UiPath.DataTableUtilities</x:String>
+      <x:String>UiPath.Web</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>UiPath.Web.Activities</x:String>
+      <x:String>Newtonsoft.Json</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="74">
+      <AssemblyReference>Microsoft.CSharp</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.CV</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>UiPath.Web</AssemblyReference>
+      <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
+      <AssemblyReference>Newtonsoft.Json</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="600.888888888889,1590.22222222222" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="sd:DataTable" Name="Dt_ProdutosComprados" />
+      <Variable x:TypeArguments="x:String" Name="IDUsuario" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message Process Start" sap:VirtualizedContainerService.HintSize="559.111111111111,95.1111111111111" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info">
+      <ui:LogMessage.Message>
+        <InArgument x:TypeArguments="x:Object">
+          <mca:CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_1">"Started Process"</mca:CSharpValue>
+        </InArgument>
+      </ui:LogMessage.Message>
+    </ui:LogMessage>
+    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="559.111111111111,100.444444444444" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+      <ui:MultipleAssign.AssignOperations>
+        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">
+                <mca:CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_6">IDUsuario</mca:CSharpReference>
+              </OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">
+                <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_15">in_TransactionItem.SpecificContent["USUARIO"].ToString()</mca:CSharpValue>
+              </InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+        </scg:List>
+      </ui:MultipleAssign.AssignOperations>
+    </ui:MultipleAssign>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke ExtrairDados workflow" sap:VirtualizedContainerService.HintSize="559.111111111111,114.666666666667" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="ExtrairDados.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_CodigoCFE">
+          <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_24">in_TransactionItem.SpecificContent["CODIGO"].ToString()</mca:CSharpValue>
+        </InArgument>
+        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_ProdutosComprados">
+          <mca:CSharpReference x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpReference`1_15">Dt_ProdutosComprados</mca:CSharpReference>
+        </OutArgument>
+        <InArgument x:TypeArguments="scg:List(scg:Dictionary(x:String, x:Object))" x:Key="in_EANProdutos">
+          <mca:CSharpValue x:TypeArguments="scg:List(scg:Dictionary(x:String, x:Object))" sap2010:WorkflowViewState.IdRef="CSharpValue`1_16">in_EANProduto</mca:CSharpValue>
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_URLConsultaCFE">
+          <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_25">in_Config["url_cfe"].ToString()</mca:CSharpValue>
+        </InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="559.111111111111,988.444444444444" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+      <ui:ForEachRow.Body>
+        <ActivityAction x:TypeArguments="sd:DataRow">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CRow" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="525.333333333333,872" sap2010:WorkflowViewState.IdRef="Sequence_4">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="x:Int64" Name="IDProduto" />
+              <Variable x:TypeArguments="x:Int64" Name="Quantidade" />
+              <Variable x:TypeArguments="scg:Dictionary(x:String, x:Object)" Name="EANProduto" />
+              <Variable x:TypeArguments="x:String" Name="mo" />
+              <Variable x:TypeArguments="scg:Dictionary(x:String, x:Object)" Name="MovimentacaoDeEstoqueObj" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Assign sap:VirtualizedContainerService.HintSize="483.555555555556,60.4444444444444" sap2010:WorkflowViewState.IdRef="Assign_1">
+              <Assign.To>
+                <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)">
+                  <mca:CSharpReference x:TypeArguments="scg:Dictionary(x:String, x:Object)" sap2010:WorkflowViewState.IdRef="CSharpReference`1_16">EANProduto</mca:CSharpReference>
+                </OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)">
+                  <mca:CSharpValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_35">in_EANProduto.FirstOrDefault(x =&gt; x["ean"].ToString().TrimStart('0') == CRow["Cód. GTIN"].ToString().TrimStart('0'))</mca:CSharpValue>
+                </InArgument>
+              </Assign.Value>
+            </Assign>
+            <If sap:VirtualizedContainerService.HintSize="483.555555555556,305.777777777778" sap2010:WorkflowViewState.IdRef="If_2">
+              <If.Condition>
+                <InArgument x:TypeArguments="x:Boolean">
+                  <mca:CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_33">EANProduto == null</mca:CSharpValue>
+                </InArgument>
+              </If.Condition>
+              <If.Then>
+                <Sequence sap:VirtualizedContainerService.HintSize="241.777777777778,114.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:Continue sap:VirtualizedContainerService.HintSize="200,22.2222222222222" sap2010:WorkflowViewState.IdRef="Continue_3" />
+                </Sequence>
+              </If.Then>
+            </If>
+            <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="483.555555555556,131.555555555556" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+              <ui:MultipleAssign.AssignOperations>
+                <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:Int64">
+                        <mca:CSharpReference x:TypeArguments="x:Int64" sap2010:WorkflowViewState.IdRef="CSharpReference`1_17">IDProduto</mca:CSharpReference>
+                      </OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:Int64">
+                        <mca:CSharpValue x:TypeArguments="x:Int64" sap2010:WorkflowViewState.IdRef="CSharpValue`1_27">(Int64) EANProduto["produto"]</mca:CSharpValue>
+                      </InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:Int64">
+                        <mca:CSharpReference x:TypeArguments="x:Int64" sap2010:WorkflowViewState.IdRef="CSharpReference`1_18">Quantidade</mca:CSharpReference>
+                      </OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:Int64">
+                        <mca:CSharpValue x:TypeArguments="x:Int64" sap2010:WorkflowViewState.IdRef="CSharpValue`1_38">Int64.Parse(Math.Round( float.Parse(CRow["qtde"].ToString()) * float.Parse(EANProduto["quantidade"].ToString())).ToString("0"))</mca:CSharpValue>
+                      </InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                </scg:List>
+              </ui:MultipleAssign.AssignOperations>
+            </ui:MultipleAssign>
+            <Assign sap:VirtualizedContainerService.HintSize="483.555555555556,63.1111111111111" sap2010:WorkflowViewState.IdRef="Assign_2">
+              <Assign.To>
+                <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)">
+                  <mca:CSharpReference x:TypeArguments="scg:Dictionary(x:String, x:Object)" sap2010:WorkflowViewState.IdRef="CSharpReference`1_19">MovimentacaoDeEstoqueObj</mca:CSharpReference>
+                </OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)">
+                  <mca:CSharpValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_29" xml:space="preserve">new Dictionary&lt;string, object&gt;(){
+	{"quantidade",Quantidade},
+	{"produto",IDProduto},
+	{"usuario",IDUsuario}
+}</mca:CSharpValue>
+                </InArgument>
+              </Assign.Value>
+            </Assign>
+            <ui:HttpClient ConsumerKey="{x:Null}" ConsumerSecret="{x:Null}" ContinueOnError="{x:Null}" FileAttachments="{x:Null}" OAuth1Token="{x:Null}" OAuth1TokenSecret="{x:Null}" OAuth2Token="{x:Null}" ResourcePath="{x:Null}" ResponseAttachment="{x:Null}" ResponseHeaders="{x:Null}" Result="{x:Null}" SecureClientCertificatePassword="{x:Null}" SecurePassword="{x:Null}" StatusCode="{x:Null}" AcceptFormat="JSON" AuthenticationType="None" BodyFormat="application/json" ClientCertificate="[Nothing]" ClientCertificatePassword="[Nothing]" DisplayName="HTTP Request" EnableSSLVerification="True" EndPoint="https://javierapp-api.herokuapp.com/api/MovimentacaoEstoque" sap:VirtualizedContainerService.HintSize="483.555555555556,58.6666666666667" sap2010:WorkflowViewState.IdRef="HttpClient_1" Method="POST" Password="[Nothing]" TimeoutMS="6000" Username="[Nothing]">
+              <ui:HttpClient.Attachments>
+                <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+              </ui:HttpClient.Attachments>
+              <ui:HttpClient.Body>
+                <InArgument x:TypeArguments="x:String">
+                  <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_30">JsonConvert.SerializeObject(MovimentacaoDeEstoqueObj)</mca:CSharpValue>
+                </InArgument>
+              </ui:HttpClient.Body>
+              <ui:HttpClient.Cookies>
+                <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+              </ui:HttpClient.Cookies>
+              <ui:HttpClient.Headers>
+                <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+              </ui:HttpClient.Headers>
+              <ui:HttpClient.Parameters>
+                <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+              </ui:HttpClient.Parameters>
+              <ui:HttpClient.UrlSegments>
+                <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
+              </ui:HttpClient.UrlSegments>
+            </ui:HttpClient>
+          </Sequence>
+        </ActivityAction>
+      </ui:ForEachRow.Body>
+      <ui:ForEachRow.DataTable>
+        <InArgument x:TypeArguments="sd:DataTable">
+          <mca:CSharpValue x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpValue`1_17">Dt_ProdutosComprados</mca:CSharpValue>
+        </InArgument>
+      </ui:ForEachRow.DataTable>
+    </ui:ForEachRow>
+  </Sequence>
+</Activity>
