@@ -1,0 +1,355 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="ExtrairDados" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:d="clr-namespace:DataTableExtensions;assembly=DataTableExtensions.Activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mca="clr-namespace:Microsoft.CSharp.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_CodigoCFE" Type="InArgument(x:String)" />
+    <x:Property Name="out_ProdutosComprados" Type="OutArgument(sd:DataTable)" />
+    <x:Property Name="in_EANProdutos" Type="InArgument(scg:List(scg:Dictionary(x:String, x:Object)))" />
+    <x:Property Name="in_URLConsultaCFE" Type="InArgument(x:String)" />
+  </x:Members>
+  <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
+  <sap:VirtualizedContainerService.HintSize>1278.22222222222,992</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="64">
+      <x:String>System</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.ExtractData</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>DataTableExtensions</x:String>
+      <x:String>UiPath.DataTableUtilities</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="64">
+      <AssemblyReference>Microsoft.CSharp</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.CV</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>DataTableExtensions.Activities</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Extrair Dados" sap:VirtualizedContainerService.HintSize="475.555555555556,928" sap2010:WorkflowViewState.IdRef="Sequence_9">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Chrome: Secretaria da Fazenda - Governo do Estado de São Paulo" sap:VirtualizedContainerService.HintSize="433.777777777778,835.555555555556" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="IfNotOpen" ScopeGuid="6125cbcb-f357-4146-aef2-ae28477bf4c5" Version="V2" WindowResize="Maximize">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,618.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_3">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="sd:DataTable" Name="Dt_ProdutosComprados" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Sequence DisplayName="Inserir Chave de Acesso" sap:VirtualizedContainerService.HintSize="334.222222222222,70.2222222222222" sap2010:WorkflowViewState.IdRef="Sequence_11">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DisplayName="Type Into 'Chave de Acesso'" EmptyFieldMode="None" sap:VirtualizedContainerService.HintSize="334.222222222222,220.444444444444" sap2010:WorkflowViewState.IdRef="NTypeInto_1" InteractionMode="Simulate" ScopeIdentifier="6125cbcb-f357-4146-aef2-ae28477bf4c5" Version="V1">
+                <uix:NTypeInto.Target>
+                  <uix:TargetAnchorable BrowserURL="https://satsp.fazenda.sp.gov.br/COMSAT/Public/ConsultaPublica/ConsultaPublicaCfe.aspx" DesignTimeRectangle="795, 337, 417, 21" ElementType="InputBox" FriendlyName="'INPUT conteudo_txtChave…'" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tableRow='2' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='text' tag='INPUT' class='input_esquerda' aaname='' /&gt;" Guid="82355f28-7f2a-4f6e-bbc5-b8474e84ec1b" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAaUAAAAZCAYAAACRrTEUAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEJsAABCbAXSJnEsAAACMSURBVHhe7dWxDYAwEMBA9t8la2WN0CEh6N/FneQZfO29jyRJhUxJkpTJlCRJmZ4prbUkSRrrMyUAmGBKAGSYEgAZpgRAhikBkGFKAGSYEgAZpgRAhikBkGFKAGSYEgAZpgRAhikBkGFKAGSYEgAZpgRAhikBkGFKAGSYEgAZv1OSJGmq15QkSZptnxs8QZEiesY8vgAAAABJRU5ErkJggg==" InformativeScreenshot="bd0445a1d83ed5669b8f329ccf6b1b84.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Secretaria da Fazenda - Governo do Estado de São Paulo' /&gt;" SearchSteps="FuzzySelector, Image" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                        <uix:Target DesignTimeRectangle="674, 343, 110, 13" ElementType="Text" FriendlyName="'Chave de Acesso'" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl parentid='divChave' tableRow='2' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl parentid='divChave' type='' tag='SPAN' class='TituloCampo' aaname='Chave de Acesso:' check:innerText='Chave de Acesso:' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAHIAAAARCAYAAAABvfiJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEJsAABCbAXSJnEsAAAHySURBVFhH7ZbNkYMwDIWpj5mUk6ESthHXkRmqcBteG3iS9WNIctkN8eE7gIwsvSc7GWKMqfP5dCMvQjfyInQjL0I38iK8ZOTyM6ZhGNL4s7jxv2FJ821Y65qCF/8OrJGPOY1ZlCIMcQ9r7NJGhon6/V/9PYc0Es3c5rTgXTH2C4wM9y2H6f9DqIyEIGOaH3IRYCPnNKHpYUpBxWsgLoQisXHySTQ2RH9rsWv1emFM5nj4wt7PmMaGBjofbil7g7EekfIyVIdz8xltgBgsrrWusTISC+pCJGzUtgbNuSJRMXs+PLunG8Zg7+Na5L72RG5xNHo+oHQT5dqoRxiVafapeqrzHO970B9ywjyRs6w5M1IL7yDFt8+RNqlBvtosZRztrTkSQRsFI70a6rgFRq1xo4MvXIEHW7GawHUB3l/XyLntIGFt25fCm1erZ2RLUC4A66ewx1DsE0PE6Lytfdt9CJpDdJ7Pim7BkBC01hpddNQax9eNzLz4Z0c+64a9AvBugyeUm+IGYhbBM0Mbp58ji1cJXGrl/RjPDP3u9GoVJucexW/ajrkiGaEjcr59tQJ8WLMnkca1nyVykkhk06yd0PapkgMBaqPMSVDxDTsEK45BzZPlnei1N6dG9Ox9Uxus40KrZ43sfCTdyIvQjbwEMf0C7TeumhKO6QQAAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NTypeInto.Target>
+                <uix:NTypeInto.Text>
+                  <InArgument x:TypeArguments="x:String">
+                    <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_9">in_CodigoCFE</mca:CSharpValue>
+                  </InArgument>
+                </uix:NTypeInto.Text>
+              </uix:NTypeInto>
+              <uix:NClick ClickType="Single" DisplayName="Click 'I'm not a robot'" sap:VirtualizedContainerService.HintSize="334.222222222222,158.222222222222" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="6125cbcb-f357-4146-aef2-ae28477bf4c5" Version="V1">
+                <uix:NClick.Target>
+                  <uix:TargetAnchorable BrowserURL="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6LeEy8wUAAAAAHN6Wu2rNdku25fyHUVgovX-rJqM&amp;co=aHR0cHM6Ly9zYXRzcC5mYXplbmRhLnNwLmdvdi5icjo0NDM.&amp;hl=en&amp;type=image&amp;v=M-QqaF9xk6BpjLH22uHZRhXt&amp;theme=light&amp;size=normal&amp;cb=am9o54xrro3r" DesignTimeRectangle="799, 278, 32, 32" FriendlyName="'DIV'" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tableRow='2' tag='IFRAME' /&gt;&lt;webctrl aria-role='presentation' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tag='IFRAME' /&gt;&lt;webctrl aria-role='presentation' tag='DIV' type='' class='recaptcha-checkbox-border' aaname='' /&gt;" Guid="bf31ca75-2e24-4264-98b4-0300091c6e36" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEJsAABCbAXSJnEsAAABqSURBVFhH7dixCQAhEAXR678rQ1uxg432MPAij8lkhRn4mbAv9omIrDRBtA80xsjee7bWjm3em3e3oNOYtXl3C1oPTrZuCvpLECWIEkQJogRRgihBlCBKECWIEkQJou4ClftsKPcdU2ORL9blbrLW8HwSAAAAAElFTkSuQmCC" InformativeScreenshot="db60d4a2215ef3fb3fcef52cb70f4f4b.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Secretaria da Fazenda - Governo do Estado de São Paulo' /&gt;" SearchSteps="FuzzySelector, Image" Visibility="Interactive">
+                    <uix:TargetAnchorable.Anchors>
+                      <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                        <uix:Target DesignTimeRectangle="844, 254, 171, 83" ElementType="Text" FriendlyName="'I'm not a robot'" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tableRow='2' tag='IFRAME' /&gt;&lt;webctrl tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tag='IFRAME' /&gt;&lt;webctrl tag='LABEL' type='' class='rc-anchor-center-item rc-anchor-checkbox-label' aaname='I&amp;apos;m not a robot' check:innerText='I&amp;apos;m not a robot' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAK8AAABXCAYAAAByUxUBAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEJsAABCbAXSJnEsAAAUJSURBVHhe7Z3NK21RGIfPP2CilJGRJEkyUCQiBgYoipSkfEwUMZAkBmRiZCIzZELIQCmlGCglEUoh30LyFfkavbffqrXb+5x9nON26563foOn3HXWete79n7Wa501cAM3NzdCiEYoL1FLYH9/XwjRSOD7+1sI0QjlJWqhvEQtlJeohfIStVBeohbKS9RCeYlaKC9RC+UlaqG8RC2Ul6iF8hK1UF6iFspL1EJ5iVooL1EL5SVqobxELZSXqIXyErVQXqIWykvUQnmJWigvUQvlJWqhvEQtlJeohfIStVBeohbKS9RCeYlaKC9RC+UlaqG8RC0eefv7+6W5uVleXl7M3/yvrq42/3GFuw/xsrq6KiUlJXxO/wGV8saSMP8qF4xHHMTz+5yE8qO87e3t8vz87BkQC1BeAn6Ut7Oz0/yMB1pUVCRzc3NSWFgogUBAKioqZHNzU/b29qSqqkri4uIkOztbZmdn5evryzOJO35jY6MsLCxIXl6eGVNTUyPHx8dOH4xdXl525kHMqakpeX9/N7kgP7RbENM9hwX9MQ7j0Q/x1tbWwuZm1zg+Pi7p6elO3NvbW+nu7pakpCSJj483+Z+cnISM83s2tk+kOBMTE541xcrGjHXCyutuxwvCQ21qapKDgwNDQ0ODpKWlSXl5uaysrMjV1ZUMDQ1Jamqq7OzseMZbED8hIUFaWlpMDLzg0tJSaW1tldfXV9MHEiQnJxuJrq+vZXFxUTIzM2VyclI+Pz/l/v7etEEUxHh8fAyZB4KOjo4acSEschsZGTFShssNa8Rmwnrm5+dld3dX7u7uzMbEBsNmxibr6OiQsrIyE9OOw7NBn62tLZNTW1ub5ObmytHRkekTKQ6eN8ZhTVgb+mOt7vxIKFHLi0p5enrqtG1sbEhiYqIsLS05befn55Kfn29evm1zg/ioSng5tg19baVBOz6HeO4KOTMzIzk5OU6FRj4/VaeHhwezIaanp502bARUSFQ5d18LYkL2w8NDpw3zFhQUyNnZmdNmcxweHg477uLiwjNXNHF4bPg9UcsbLAsqSEZGhudh2xcQThC/+O7YOIJABGwM9zhIC3ntXH75RCJSbsExsXl6e3tNFX17e/P0hXB2HX65fHx8SFdXl1lvtHFsfnaNJDIxJS9+RkzEdo8LfrF++QSDSjs4OCgpKSme82S08iJH5Iqcg/sixk/yArtWVNho4gSvkUQm5iovjic4O7rH4TyYlZXlzOWXj5unpyepr683X5AuLy9N9bMyRiuvrZiooKik7r4DAwPOOvxysZUX43F2jSaOfXZ2jSQyMSXvb868OFOiuto+bvxywxe92traqOUF/+PMiy+/tg/5mZiSF/8Od9swNjbmCI0zMY4D+Mydk8WKgRuR7e1tWV9fl7q6ul8dGwDi+N0SFBcXmy+ndpzfbYNb1mjiYHNVVlZKX1+f+W2Bqz6bB/En5uSFoOHuee0YjO/p6TFXW/jVa9vduO+fcRTBrQbmxq9wd1W3+K0R/O09L+b/TRyAHLEpcX0I4d2fkVA88hKiCcpL1EJ5iVooL1EL5SVqobxELZSXqIXyErVQXqIWykvUQnmJWigvUQvlJWqhvEQtlJeohfIStVBeohbKS9RCeYlaKC9RC+UlaqG8RC2Ul6iF8hK1UF6iFspL1EJ5iVooL1EL5SVqobxELZSXqIXyErVQXqIWykvUQnmJWigvUQvlJUr5lj8LjGnPaZyLuQAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image" />
+                      </scg:List>
+                    </uix:TargetAnchorable.Anchors>
+                  </uix:TargetAnchorable>
+                </uix:NClick.Target>
+              </uix:NClick>
+              <uix:NCheckState Exists="{x:Null}" DisplayName="Check App State 'Sucesso na'" sap:VirtualizedContainerService.HintSize="334.222222222222,53.3333333333333" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="6125cbcb-f357-4146-aef2-ae28477bf4c5" Timeout="2" Version="V1">
+                <uix:NCheckState.IfExists>
+                  <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="376,252.444444444444" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <uix:NClick ClickType="Single" DisplayName="Click 'Consultar'" sap:VirtualizedContainerService.HintSize="334.222222222222,158.222222222222" sap2010:WorkflowViewState.IdRef="NClick_3" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="6125cbcb-f357-4146-aef2-ae28477bf4c5" Version="V1">
+                      <uix:NClick.Target>
+                        <uix:TargetAnchorable BrowserURL="https://satsp.fazenda.sp.gov.br/COMSAT/Public/ConsultaPublica/ConsultaPublicaCfe.aspx" DesignTimeRectangle="924, 482, 79, 18" ElementType="Button" FriendlyName="'Consultar'" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tableRow='2' tag='INPUT' type='submit' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl class='aspNetDisabled cssButton' tag='INPUT' type='submit' aaname='Consultar' check:text='Consultar' /&gt;" Guid="57490355-016b-4ec1-b772-6bcd365e9be8" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFMAAAAWCAYAAAC8J6DfAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEJsAABCbAXSJnEsAAACASURBVFhH7dAxDYBAFATRrw01BB/YAAUn4DycjrPxSSiggAYy103xki22mui9pxjGBBkTZEyQMUHGBBkTZEyQMUHGBBkTZEyQMUHGBBkTZEzQFbOUop9eY7bW9JExQcYEGRM0Lua+ZERclv3lM0hdp4x5O/c2R05rfXxGuGP2PADrr5hrnejE5gAAAABJRU5ErkJggg==" InformativeScreenshot="41e8c3a9660b99418edf4f4dac5b903a.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Secretaria da Fazenda - Governo do Estado de São Paulo' /&gt;" SearchSteps="FuzzySelector, Image" Visibility="Interactive" />
+                      </uix:NClick.Target>
+                    </uix:NClick>
+                  </Sequence>
+                </uix:NCheckState.IfExists>
+                <uix:NCheckState.IfNotExists>
+                  <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="376,647.111111111111" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:ClickImage ContinueOnError="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click Image 'chrome.exe Secretaria'" sap:VirtualizedContainerService.HintSize="334.222222222222,156.444444444444" sap2010:WorkflowViewState.IdRef="ClickImage_2" KeyModifiers="None" MouseButton="BTN_LEFT">
+                      <ui:ClickImage.CursorPosition>
+                        <ui:CursorPosition Position="Center">
+                          <ui:CursorPosition.OffsetX>
+                            <InArgument x:TypeArguments="x:Int32" />
+                          </ui:CursorPosition.OffsetX>
+                          <ui:CursorPosition.OffsetY>
+                            <InArgument x:TypeArguments="x:Int32" />
+                          </ui:CursorPosition.OffsetY>
+                        </ui:CursorPosition>
+                      </ui:ClickImage.CursorPosition>
+                      <ui:ClickImage.Image>
+                        <ui:ImageTarget Image="{x:Null}" Accuracy="0.8" Profile="Basic" TargetImageBase64="iVBORw0KGgoAAAANSUhEUgAAACIAAAAkCAYAAADsHujfAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHoSURBVFhH7ZdNSwJRFIb7je1at2rhrkUtglpEmwoqcFObFkEUEX1RFBpC0xeJVGopZCpZGWaJWEnJaU5zpbl3zuS5k1GBD7wLR4/vo5wZxzb4I7REVP65SOUO4CYCcBEAKCQAqmXxhHf0RKoVgAM/wHKXM9F58SJv8EVeSrSAPSjpEb7I0SRdriazIwb04InkwnSpW/Db04QnElugC92SPxGDfHgixihd6JbzFTHIhycSX6QL3ZKPikE+PJGrQ7rQLZWCGOTDE3mrAgT66FI1xzNiSA+eCFLK0sX24C55hC+CPBUB9sZoCQ8LakdPBKm9AlybvzOX2wDJdfMCZpjLeSqe9I6+SJOYTZkfxMaviKBEe7Af/GdL4oiuCJ49z+blu3wL8JC2bgHsYVCXqGc4OvdxvLFIKWct4mYPvaQY5qK6SSDuItld8wwZp4vtaYIE4hSpmV9/ZJouVZNYFUMW+Obh+6R49EkjCcQpEhqiS9UQEljSERqE+GNGHOVJILIIXg+oUjXBAWt3BEY+JpV1GiOQNheaK4HIIuEpupjKVi9AMSUGnTK+/Qnp8VcSiCyie9+x0S2dtqoMVwL5nghmzSfdf6gyHAnEKeI1+D9HUJfhSiCySBNBGR1+TESXlohKS0Tlj4gAvAMtJgDuK+DbVgAAAABJRU5ErkJggg==" />
+                      </ui:ClickImage.Image>
+                      <ui:ClickImage.Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="fdaaae44-1dd7-4631-8233-ad7c6d22bd64">
+                          <ui:Target.TimeoutMS>
+                            <InArgument x:TypeArguments="x:Int32" />
+                          </ui:Target.TimeoutMS>
+                          <ui:Target.WaitForReady>
+                            <InArgument x:TypeArguments="ui:WaitForReady" />
+                          </ui:Target.WaitForReady>
+                        </ui:Target>
+                      </ui:ClickImage.Target>
+                    </ui:ClickImage>
+                    <uix:NClick ClickType="Single" DisplayName="Click 'Sucesso na'" sap:VirtualizedContainerService.HintSize="334.222222222222,158.222222222222" sap2010:WorkflowViewState.IdRef="NClick_4" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="6125cbcb-f357-4146-aef2-ae28477bf4c5" Version="V1">
+                      <uix:NClick.Target>
+                        <uix:TargetAnchorable BrowserURL="https://satsp.fazenda.sp.gov.br/COMSAT/Public/ConsultaPublica/ConsultaPublicaCfe.aspx" DesignTimeRectangle="794, 453, 200, 13" ElementType="Text" FriendlyName="'Sucesso na'" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tableRow='2' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='LABEL' class='' aaname='Sucesso na verificação do Captcha.' check:innerText='Sucesso na verificação do Captcha.' /&gt;" Guid="65ff4768-0249-45e0-a9aa-fc75889dc920" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAMwAAAARCAYAAACRgkMDAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEJsAABCbAXSJnEsAAAPQSURBVGhD7VhNjvIwDOV8XKjbuQBLVhyBZfecgRFCQuKfRa+RL3b+bMdJOx8wGqQsnkTrxH5+tpPOzIZhMIDr9WoOh4PZ7/dmt9s1NDQoiANzv99xaC6Xizmfz+Z0OiGOx2NDQ4NHHJjH44FDA7jdbjg8DQ0NHHFgGhoaxtEGpqHhB2gD82b0q5npNuG5N93XzMws5uutsL0SPs5iabbD1iwXnenVdVMBPt7F9b0AjUFrzfY/YAMDzqGYESh4sjc8h+16bmarXrW9EhAHmhvj+eHU1k3HkwPzvTRz2ldfc7P8VtZNBfqbdgi8bWC0YvarZ0+mBopXF+/38MTA+GFhe+HdMwfHXxiYMcdgT0lLAd1zPEGiGPw99Q/+4vp4k5X88PU1nm7wu/jpM6PCbrroo+onK4jIl/lJ62RsWB91Y3vcCcs1dc9xjdck3BIBdL3mM9NQNhbdM/IFwfhYlLiO9U3ZXuHqa9CROC6+2DPSOxjf1iTecCTnqrYFpE8yfxJIpwEQODnkDYTi0SFZuf1cLNjjiwpFY8SXKJS85Xr7HtbgeyFMKTknQhK+XDD4zi9/GrB8QZsQXw4T5OI5y9jSj+RCbTxHsIlGB9DYkod97pQ8maa4J+XMbAKcD9e8ZuOo10oi50r24qAXcrcALVMuNi7pwUlcFZ8a1D/6kTgOT3JAi8sDw2+t8dwaOsEA3OPFkM0VTz/SOAAee0KhiQ2e+dBSPuWBkYMQfQSOFJ6vxotyh9+lgZE5JqR/FDh4zQi/DJJjWCf3VJqE8+GNJrmW68H3qShxzbiRAy6zlXpwqGo+lLStQB0Yh5pI1FYiO0GsSFjsFwM1vUC5jTY7+Em2+g0zRLvIDwosBjrg9QPjNIx7aKOUBgbXJL6M068PzJDlzFDjmnF79cBUtK3AD4wWkDcUC4zOuYBJMOtLvQ4tNkv0B8JoxehXlEOKj0JOuVYtZPHgOfDOc9BFDsC9Vpe8yWh8y2ft7DI2IBXI/daLJ3MEGxRP5IqnsS+qLLB9xk8y8R5rwJow5azxDeA2qEWJa70euV7+Hfge5ZpsLKawZXuBk/pngXt2XCra+nWaNumGwQ12UYRoJp842hb2jzEmkgse9iaC/D0vNnkfiAkOMlHtvYRsAniO61kO9v3IwIT1WTMUeMrYgFQg91vmRH3THFVNkDNpFMYj5cK0kgPP/KUBzUFrBwdHmWutHghZb9mYwQ/lWtnD9onBjb48J1hX1LyiLfoXtQRUPskaPgf2BlCK+9HAgeFD8hfQBuaj4T6V4ITMbsFPRxuYhoZPx2D+AeC3Gf3keTIuAAAAAElFTkSuQmCC" InformativeScreenshot="d3c3c1dafd7c04d135ff36df97b9bbee.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Secretaria da Fazenda - Governo do Estado de São Paulo' /&gt;" SearchSteps="FuzzySelector, Image" Visibility="Interactive" />
+                      </uix:NClick.Target>
+                    </uix:NClick>
+                    <uix:NClick ClickType="Single" DisplayName="Click 'Consultar'" sap:VirtualizedContainerService.HintSize="334.222222222222,158.222222222222" sap2010:WorkflowViewState.IdRef="NClick_5" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="6125cbcb-f357-4146-aef2-ae28477bf4c5" Version="V1">
+                      <uix:NClick.Target>
+                        <uix:TargetAnchorable BrowserURL="https://satsp.fazenda.sp.gov.br/COMSAT/Public/ConsultaPublica/ConsultaPublicaCfe.aspx" DesignTimeRectangle="924, 482, 79, 18" ElementType="Button" FriendlyName="'Consultar'" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tableRow='2' tag='INPUT' type='submit' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl class='aspNetDisabled cssButton' tag='INPUT' type='submit' aaname='Consultar' check:text='Consultar' /&gt;" Guid="57490355-016b-4ec1-b772-6bcd365e9be8" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFMAAAAWCAYAAAC8J6DfAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEJsAABCbAXSJnEsAAACASURBVFhH7dAxDYBAFATRrw01BB/YAAUn4DycjrPxSSiggAYy103xki22mui9pxjGBBkTZEyQMUHGBBkTZEyQMUHGBBkTZEyQMUHGBBkTZEzQFbOUop9eY7bW9JExQcYEGRM0Lua+ZERclv3lM0hdp4x5O/c2R05rfXxGuGP2PADrr5hrnejE5gAAAABJRU5ErkJggg==" InformativeScreenshot="41e8c3a9660b99418edf4f4dac5b903a.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Secretaria da Fazenda - Governo do Estado de São Paulo' /&gt;" SearchSteps="FuzzySelector, Image" Visibility="Interactive" />
+                      </uix:NClick.Target>
+                    </uix:NClick>
+                  </Sequence>
+                </uix:NCheckState.IfNotExists>
+                <uix:NCheckState.Target>
+                  <uix:TargetAnchorable BrowserURL="https://satsp.fazenda.sp.gov.br/COMSAT/Public/ConsultaPublica/ConsultaPublicaCfe.aspx" DesignTimeRectangle="794, 453, 200, 13" ElementType="Text" FriendlyName="'Sucesso na'" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tableRow='2' tag='LABEL' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='LABEL' class='' aaname='Sucesso na verificação do Captcha.' check:innerText='Sucesso na verificação do Captcha.' /&gt;" Guid="826cbf45-7899-4c04-97f2-ca290fbdb9a8" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAMwAAAARCAYAAACRgkMDAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEJsAABCbAXSJnEsAAAPQSURBVGhD7VhNjvIwDOV8XKjbuQBLVhyBZfecgRFCQuKfRa+RL3b+bMdJOx8wGqQsnkTrxH5+tpPOzIZhMIDr9WoOh4PZ7/dmt9s1NDQoiANzv99xaC6Xizmfz+Z0OiGOx2NDQ4NHHJjH44FDA7jdbjg8DQ0NHHFgGhoaxtEGpqHhB2gD82b0q5npNuG5N93XzMws5uutsL0SPs5iabbD1iwXnenVdVMBPt7F9b0AjUFrzfY/YAMDzqGYESh4sjc8h+16bmarXrW9EhAHmhvj+eHU1k3HkwPzvTRz2ldfc7P8VtZNBfqbdgi8bWC0YvarZ0+mBopXF+/38MTA+GFhe+HdMwfHXxiYMcdgT0lLAd1zPEGiGPw99Q/+4vp4k5X88PU1nm7wu/jpM6PCbrroo+onK4jIl/lJ62RsWB91Y3vcCcs1dc9xjdck3BIBdL3mM9NQNhbdM/IFwfhYlLiO9U3ZXuHqa9CROC6+2DPSOxjf1iTecCTnqrYFpE8yfxJIpwEQODnkDYTi0SFZuf1cLNjjiwpFY8SXKJS85Xr7HtbgeyFMKTknQhK+XDD4zi9/GrB8QZsQXw4T5OI5y9jSj+RCbTxHsIlGB9DYkod97pQ8maa4J+XMbAKcD9e8ZuOo10oi50r24qAXcrcALVMuNi7pwUlcFZ8a1D/6kTgOT3JAi8sDw2+t8dwaOsEA3OPFkM0VTz/SOAAee0KhiQ2e+dBSPuWBkYMQfQSOFJ6vxotyh9+lgZE5JqR/FDh4zQi/DJJjWCf3VJqE8+GNJrmW68H3qShxzbiRAy6zlXpwqGo+lLStQB0Yh5pI1FYiO0GsSFjsFwM1vUC5jTY7+Em2+g0zRLvIDwosBjrg9QPjNIx7aKOUBgbXJL6M068PzJDlzFDjmnF79cBUtK3AD4wWkDcUC4zOuYBJMOtLvQ4tNkv0B8JoxehXlEOKj0JOuVYtZPHgOfDOc9BFDsC9Vpe8yWh8y2ft7DI2IBXI/daLJ3MEGxRP5IqnsS+qLLB9xk8y8R5rwJow5azxDeA2qEWJa70euV7+Hfge5ZpsLKawZXuBk/pngXt2XCra+nWaNumGwQ12UYRoJp842hb2jzEmkgse9iaC/D0vNnkfiAkOMlHtvYRsAniO61kO9v3IwIT1WTMUeMrYgFQg91vmRH3THFVNkDNpFMYj5cK0kgPP/KUBzUFrBwdHmWutHghZb9mYwQ/lWtnD9onBjb48J1hX1LyiLfoXtQRUPskaPgf2BlCK+9HAgeFD8hfQBuaj4T6V4ITMbsFPRxuYhoZPx2D+AeC3Gf3keTIuAAAAAElFTkSuQmCC" InformativeScreenshot="b73bd0d0c0d9015de165848f1ddc6e1b.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Secretaria da Fazenda - Governo do Estado de São Paulo' /&gt;" SearchSteps="FuzzySelector" Visibility="Interactive" />
+                </uix:NCheckState.Target>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </uix:NCheckState>
+            </Sequence>
+            <Sequence DisplayName="Abrir Detalhes" sap:VirtualizedContainerService.HintSize="334.222222222222,70.2222222222222" sap2010:WorkflowViewState.IdRef="Sequence_12">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <uix:NClick ClickType="Single" DisplayName="Click 'Detalhes'" sap:VirtualizedContainerService.HintSize="334.222222222222,158.222222222222" sap2010:WorkflowViewState.IdRef="NClick_6" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="6125cbcb-f357-4146-aef2-ae28477bf4c5" Version="V1">
+                <uix:NClick.Target>
+                  <uix:TargetAnchorable BrowserURL="https://satsp.fazenda.sp.gov.br/COMSAT/Public/ConsultaPublica/ConsultaPublicaCfe.aspx" DesignTimeRectangle="828, 956, 79, 18" ElementType="Button" FriendlyName="'Detalhes'" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tableRow='2' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='submit' tag='INPUT' class='cssButton' aaname='Detalhes' check:text='Detalhes' /&gt;" Guid="8202be21-2b20-4bbf-8db3-fae7db390680" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFMAAAAWCAYAAAC8J6DfAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEJsAABCbAXSJnEsAAAFgSURBVFhH7ZTdrYMwDEYzG+owVeZI10gn4LUSOzAHjOELzg92GlrKNfShfjgSBJumJ58xwzCAIoPKFERlCpJltm2r7KQqs+975UNUpiAqUxCVKcihMv3VgDEce6/XcjxY04B71J4llpru1oC5OOiqdedxvMyrX9YeDpotQrFOZTKeZE7gHydrNL3NrZvWOnCXuBYF8YRb8NhbyrRgUx95Pz5LvSu/W+5xL6fL7O82S+JiyWizZHrwOclBdEh2IbPWS36L9WLN86Gwfe7gqzJ54gKYzsqY09qqzCytlMzfH/ZD0i+UypnTZdI0zs/DaPM+JhOv+SfgI5kvZc21Qerb7/gGzpUZxaSNh+TQcaNjSGXGGtb/XiZOQbqOB5GTXxt/vN/P8TLjySfKTdOaJaUxMfiHyUhO9y6neYPM6T4cWOwnB7u2/h8OlflrqExBVKYgKlOQVZnKPrLMcRxBkWCEP/KYRULhwxTAAAAAAElFTkSuQmCC" InformativeScreenshot="33b2ba400368507665a2bbb5250d94bd.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Secretaria da Fazenda - Governo do Estado de São Paulo' /&gt;" SearchSteps="FuzzySelector, Image" Visibility="Interactive" />
+                </uix:NClick.Target>
+              </uix:NClick>
+              <uix:NClick ClickType="Single" DisplayName="Click 'Produtos/Serviços'" sap:VirtualizedContainerService.HintSize="334.222222222222,158.222222222222" sap2010:WorkflowViewState.IdRef="NClick_7" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="6125cbcb-f357-4146-aef2-ae28477bf4c5" Version="V1">
+                <uix:NClick.Target>
+                  <uix:TargetAnchorable BrowserURL="https://satsp.fazenda.sp.gov.br/COMSAT/Public/ConsultaPublica/DadosLotesEnviadosDadosCupom.aspx" DesignTimeRectangle="793, 329, 130, 32" ElementType="Button" FriendlyName="'Produtos/Serviços'" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl id='conteudo_tabProdutoServico' tableRow='2' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl id='conteudo_tabProdutoServico' type='submit' tag='INPUT' class='formatarBotao' aaname=' Produtos/Serviços ' check:text='Produtos/Serviços' /&gt;" Guid="412e0103-5c9b-4bab-8e4c-8f52dda3a6e5" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAIYAAAAkCAYAAABMrUJ0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEJsAABCbAXSJnEsAAAKTSURBVHhe7ZdZjqwwDEXf/hdQO2ILsAFUUv9Qv/zlkcFgO5dirNIbrqWjLkjieLgJ6l/P5zMQ4qEwCITCIJBZGI/Hg/znUBgEQmEQCIVBIBQGgVAYBEJhEAiFQSAUBoFQGARCYRDINWE0fRhDbUMH5p6iDUN0+GrBGKZ9jaFv8NgxmtCP2ld8TullG/vQVGuuUvb4iO9j3CKMsW/KOyneEFo/9xTHhNHkqt4kjLj3kkf2XZ67FJXK+9/jZmFMlKKlW0PGX0O+WeQkuJvG3DB6bFpnhOH303uV32LiMzdUzAn2XRzRnxJk+wJzFGYfdeLzuikPWf/jcjDiBzeGycuK/nRuO/iKMEyibo095e7GkaLsEUbla8X3HIt9lgbqG0LnJcKIZvKNmDjsLVcLquwrOZm1LsaSLxq7ktsebhZGCUiCqMbr5plCVvPdp+SQMHyx/HyJdTI9pxCLuTQzUmKZbSm0L3x6ftOUHGd+Z8dtzHqerM1cy20PtwjDmmo6EEZdqE8Jw60F8+V5trmIcS1qiMRfLPlWTTCGGl8oeQydj9E2HK5NXMltH7cIQzd+a3zPjbEk7ApwSBhbp0pT9pks+Y77vC1kmb/ZwLUxiW36XMXROR4bc10rPC+925ubGVvn68Lw72AzpZCi+hWhyOnFwtgSihOdKmxaN++p5u5Yi2OsRZNj82MuRlcr7etsbrL/Ft8XhnqfzZ+IklQ0/1/JxFLQKdFpPP2VhJVfK7xi+oS5+clUM6si+rnO19o+a8KY/anc3t0E2WytzuS2l2vCIF9hFoBv/gehMP4W0g0Abp4PQWH88ehP67HPwRUoDAKhMAiEwiAQCoNAKAwCoTAIhMIgEAqDQCgMAjHC6LouEGLpwm/gkHCpLftM9AAAAABJRU5ErkJggg==" InformativeScreenshot="dd8dcc17c8d64dd788aa427a99abebd4.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Secretaria da Fazenda - Governo do Estado de São Paulo' /&gt;" SearchSteps="FuzzySelector, Image" Visibility="Interactive" />
+                </uix:NClick.Target>
+              </uix:NClick>
+            </Sequence>
+            <Sequence DisplayName="Data Scraping" sap:VirtualizedContainerService.HintSize="334.222222222222,70.2222222222222" sap2010:WorkflowViewState.IdRef="Sequence_8">
+              <Sequence.Variables>
+                <Variable x:TypeArguments="scg:IEnumerable(x:Object)" Name="ProdutosAgrupados" />
+              </Sequence.Variables>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <uix:NExtractData AppendResults="False" ContinueOnError="True" DisplayName="Extract Table Data" ExtractDataSettings="&lt;Table xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' Type='Table'&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Núm.' ReferenceIdx='0' Name='Núm.' IsDeleted='true'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Descrição' ReferenceIdx='1' Name='Descrição'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Qtd. Comercial' ReferenceIdx='2' Name='Qtd. Comercial'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Unid. Comercial' ReferenceIdx='3' Name='Unid. Comercial'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Valor Líquido do Item' ReferenceIdx='4' Name='Valor Líquido do Item' IsDeleted='true'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Informações Adicionais do Produto' ReferenceIdx='5' Name='Informações Adicionais do Produto' IsDeleted='true'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Cód. Produto' ReferenceIdx='6' Name='Cód. Produto' IsDeleted='true'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Cód. GTIN' ReferenceIdx='7' Name='Cód. GTIN'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Cód. NCM' ReferenceIdx='8' Name='Cód. NCM' IsDeleted='true'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Código Especificador da Substituição Tributária' ReferenceIdx='9' Name='Código Especificador da Substituição Tributária' IsDeleted='true'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='CFOP' ReferenceIdx='10' Name='CFOP' IsDeleted='true'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Valor Unit.' ReferenceIdx='11' Name='Valor Unit.' IsDeleted='true'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Valor Bruto' ReferenceIdx='12' Name='Valor Bruto' IsDeleted='true'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Regra de Cálculo' ReferenceIdx='13' Name='Regra de Cálculo' IsDeleted='true'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Valor do Desconto' ReferenceIdx='14' Name='Valor do Desconto' IsDeleted='true'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Outras Despesas Acessórias' ReferenceIdx='15' Name='Outras Despesas Acessórias' IsDeleted='true'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Rateio do Desconto Sobre Subtotal' ReferenceIdx='16' Name='Rateio do Desconto Sobre Subtotal' IsDeleted='true'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Rateio do Acréscimo Sobre Subtotal' ReferenceIdx='17' Name='Rateio do Acréscimo Sobre Subtotal' IsDeleted='true'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Observações Fisco' ReferenceIdx='18' Name='Observações Fisco' IsDeleted='true'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Origem da Mercadoria' ReferenceIdx='19' Name='Origem da Mercadoria' IsDeleted='true'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Tributação do ICMS' ReferenceIdx='20' Name='Tributação do ICMS' IsDeleted='true'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Cód. de Situação da Operação - Simples Nacional' ReferenceIdx='21' Name='Cód. de Situação da Operação - Simples Nacional' IsDeleted='true'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Alíquota Efetiva' ReferenceIdx='22' Name='Alíquota Efetiva' IsDeleted='true'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Valor do ICMS' ReferenceIdx='23' Name='Valor do ICMS' IsDeleted='true'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Código de Situação Tributária PIS' ReferenceIdx='24' Name='Código de Situação Tributária PIS' IsDeleted='true'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Valor da Base de Cálculo do PIS' ReferenceIdx='25' Name='Valor da Base de Cálculo do PIS' IsDeleted='true'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Alíquota do PIS(%)' ReferenceIdx='26' Name='Alíquota do PIS(%)' IsDeleted='true'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Quantidade Vendida PIS' ReferenceIdx='27' Name='Quantidade Vendida PIS' IsDeleted='true'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Alíquota do PIS' ReferenceIdx='28' Name='Alíquota do PIS' IsDeleted='true'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Valor do PIS' ReferenceIdx='29' Name='Valor do PIS' IsDeleted='true'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Valor da Base de Cálculo do PIS ST' ReferenceIdx='30' Name='Valor da Base de Cálculo do PIS ST' IsDeleted='true'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Alíquota do PIS ST(%)' ReferenceIdx='31' Name='Alíquota do PIS ST(%)' IsDeleted='true'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Quantidade Vendida PIS ST' ReferenceIdx='32' Name='Quantidade Vendida PIS ST' IsDeleted='true'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Alíquota do PIS ST' ReferenceIdx='33' Name='Alíquota do PIS ST' IsDeleted='true'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Valor do PIS ST' ReferenceIdx='34' Name='Valor do PIS ST' IsDeleted='true'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Código de Situação Tributária da COFINS' ReferenceIdx='35' Name='Código de Situação Tributária da COFINS' IsDeleted='true'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Valor da Base de Cálculo da COFINS' ReferenceIdx='36' Name='Valor da Base de Cálculo da COFINS' IsDeleted='true'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Alíquota da COFINS(%)' ReferenceIdx='37' Name='Alíquota da COFINS(%)' IsDeleted='true'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Valor da COFINS' ReferenceIdx='38' Name='Valor da COFINS' IsDeleted='true'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Quantidade Vendida COFINS' ReferenceIdx='39' Name='Quantidade Vendida COFINS' IsDeleted='true'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Alíquota da COFINS' ReferenceIdx='40' Name='Alíquota da COFINS' IsDeleted='true'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Valor da Base de Cálculo da COFINS ST' ReferenceIdx='41' Name='Valor da Base de Cálculo da COFINS ST' IsDeleted='true'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Alíquota da COFINS ST(%)' ReferenceIdx='42' Name='Alíquota da COFINS ST(%)' IsDeleted='true'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Valor da COFINS ST' ReferenceIdx='43' Name='Valor da COFINS ST' IsDeleted='true'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Quantidade Vendida COFINS ST' ReferenceIdx='44' Name='Quantidade Vendida COFINS ST' IsDeleted='true'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Alíquota da COFINS ST' ReferenceIdx='45' Name='Alíquota da COFINS ST' IsDeleted='true'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Valor de Deduções para ISSQN' ReferenceIdx='46' Name='Valor de Deduções para ISSQN' IsDeleted='true'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Valor da Base de Cálculo do ISSQN' ReferenceIdx='47' Name='Valor da Base de Cálculo do ISSQN' IsDeleted='true'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Alíquota do ISSQN' ReferenceIdx='48' Name='Alíquota do ISSQN' IsDeleted='true'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Valor do ISSQN' ReferenceIdx='49' Name='Valor do ISSQN' IsDeleted='true'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Item da Lista de Serviços' ReferenceIdx='50' Name='Item da Lista de Serviços' IsDeleted='true'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Código do Município do Fato Gerador do ISSQN' ReferenceIdx='51' Name='Código do Município do Fato Gerador do ISSQN' IsDeleted='true'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Código de Tributação pelo ISSQN do Município' ReferenceIdx='52' Name='Código de Tributação pelo ISSQN do Município' IsDeleted='true'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Natureza da Operação de ISSQN' ReferenceIdx='53' Name='Natureza da Operação de ISSQN' IsDeleted='true'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Incentivo Fiscal do ISSQN' ReferenceIdx='54' Name='Incentivo Fiscal do ISSQN' IsDeleted='true'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Valor Aproximado dos Tributos do Produto ou Serviço – Lei 12741/12' ReferenceIdx='55' Name='Valor Aproximado dos Tributos do Produto ou Serviço – Lei 12741/12' IsDeleted='true'&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&lt;/Table&gt;" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest'&gt;&lt;column name='Núm.' attr='text' /&gt;&lt;column name='Descrição' attr='text' /&gt;&lt;column name='Qtd. Comercial' attr='text' /&gt;&lt;column name='Unid. Comercial' attr='text' /&gt;&lt;column name='Valor Líquido do Item' attr='text' /&gt;&lt;column name='Informações Adicionais do Produto' attr='text' /&gt;&lt;column name='Cód. Produto' attr='text' /&gt;&lt;column name='Cód. GTIN' attr='text' /&gt;&lt;column name='Cód. NCM' attr='text' /&gt;&lt;column name='Código Especificador da Substituição Tributária' attr='text' /&gt;&lt;column name='CFOP' attr='text' /&gt;&lt;column name='Valor Unit.' attr='text' /&gt;&lt;column name='Valor Bruto' attr='text' /&gt;&lt;column name='Regra de Cálculo' attr='text' /&gt;&lt;column name='Valor do Desconto' attr='text' /&gt;&lt;column name='Outras Despesas Acessórias' attr='text' /&gt;&lt;column name='Rateio do Desconto Sobre Subtotal' attr='text' /&gt;&lt;column name='Rateio do Acréscimo Sobre Subtotal' attr='text' /&gt;&lt;column name='Observações Fisco' attr='text' /&gt;&lt;column name='Origem da Mercadoria' attr='text' /&gt;&lt;column name='Tributação do ICMS' attr='text' /&gt;&lt;column name='Cód. de Situação da Operação - Simples Nacional' attr='text' /&gt;&lt;column name='Alíquota Efetiva' attr='text' /&gt;&lt;column name='Valor do ICMS' attr='text' /&gt;&lt;column name='Código de Situação Tributária PIS' attr='text' /&gt;&lt;column name='Valor da Base de Cálculo do PIS' attr='text' /&gt;&lt;column name='Alíquota do PIS(%)' attr='text' /&gt;&lt;column name='Quantidade Vendida PIS' attr='text' /&gt;&lt;column name='Alíquota do PIS' attr='text' /&gt;&lt;column name='Valor do PIS' attr='text' /&gt;&lt;column name='Valor da Base de Cálculo do PIS ST' attr='text' /&gt;&lt;column name='Alíquota do PIS ST(%)' attr='text' /&gt;&lt;column name='Quantidade Vendida PIS ST' attr='text' /&gt;&lt;column name='Alíquota do PIS ST' attr='text' /&gt;&lt;column name='Valor do PIS ST' attr='text' /&gt;&lt;column name='Código de Situação Tributária da COFINS' attr='text' /&gt;&lt;column name='Valor da Base de Cálculo da COFINS' attr='text' /&gt;&lt;column name='Alíquota da COFINS(%)' attr='text' /&gt;&lt;column name='Valor da COFINS' attr='text' /&gt;&lt;column name='Quantidade Vendida COFINS' attr='text' /&gt;&lt;column name='Alíquota da COFINS' attr='text' /&gt;&lt;column name='Valor da Base de Cálculo da COFINS ST' attr='text' /&gt;&lt;column name='Alíquota da COFINS ST(%)' attr='text' /&gt;&lt;column name='Valor da COFINS ST' attr='text' /&gt;&lt;column name='Quantidade Vendida COFINS ST' attr='text' /&gt;&lt;column name='Alíquota da COFINS ST' attr='text' /&gt;&lt;column name='Valor de Deduções para ISSQN' attr='text' /&gt;&lt;column name='Valor da Base de Cálculo do ISSQN' attr='text' /&gt;&lt;column name='Alíquota do ISSQN' attr='text' /&gt;&lt;column name='Valor do ISSQN' attr='text' /&gt;&lt;column name='Item da Lista de Serviços' attr='text' /&gt;&lt;column name='Código do Município do Fato Gerador do ISSQN' attr='text' /&gt;&lt;column name='Código de Tributação pelo ISSQN do Município' attr='text' /&gt;&lt;column name='Natureza da Operação de ISSQN' attr='text' /&gt;&lt;column name='Incentivo Fiscal do ISSQN' attr='text' /&gt;&lt;column name='Valor Aproximado dos Tributos do Produto ou Serviço – Lei 12741/12' attr='text' /&gt;&lt;/extract-table&gt;" sap:VirtualizedContainerService.HintSize="334.222222222222,159.111111111111" sap2010:WorkflowViewState.IdRef="NExtractData_1" LimitExtractionTo="Rows" MaximumResults="0" ScopeIdentifier="6125cbcb-f357-4146-aef2-ae28477bf4c5" Version="V1">
+                <uix:NExtractData.DataTable>
+                  <InOutArgument x:TypeArguments="sd:DataTable">
+                    <mca:CSharpReference x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpReference`1_5">Dt_ProdutosComprados</mca:CSharpReference>
+                  </InOutArgument>
+                </uix:NExtractData.DataTable>
+                <uix:NExtractData.Target>
+                  <uix:TargetAnchorable DesignTimeRectangle="458, 461, 6750, 1186" FriendlyName="'Núm.DescriçãoQtd. Comer…'" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tableRow='2' tag='TABLE' /&gt;" Guid="232bc7dc-59a9-4c42-ac57-9c7ebf816889" InformativeScreenshot="ba287219ad069cb740cf3ba79b8bffc1.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Secretaria da Fazenda - Governo do Estado de São Paulo' /&gt;" SearchSteps="Selector" Visibility="Interactive" />
+                </uix:NExtractData.Target>
+              </uix:NExtractData>
+            </Sequence>
+            <Sequence DisplayName="Pre process data" sap:VirtualizedContainerService.HintSize="334.222222222222,70.2222222222222" sap2010:WorkflowViewState.IdRef="Sequence_14">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:AddDataColumn x:TypeArguments="x:Double" AllowDBNull="{x:Null}" AutoIncrement="{x:Null}" Column="{x:Null}" DefaultValue="{x:Null}" MaxLength="{x:Null}" Unique="{x:Null}" ColumnName="qtde" DisplayName="Add Data Column" sap:VirtualizedContainerService.HintSize="433.777777777778,192" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_3">
+                <ui:AddDataColumn.DataTable>
+                  <InArgument x:TypeArguments="sd:DataTable">
+                    <mca:CSharpValue x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpValue`1_19">Dt_ProdutosComprados</mca:CSharpValue>
+                  </InArgument>
+                </ui:AddDataColumn.DataTable>
+              </ui:AddDataColumn>
+              <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="433.777777777778,272.888888888889" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
+                <ui:ForEachRow.Body>
+                  <ActivityAction x:TypeArguments="sd:DataRow">
+                    <ActivityAction.Argument>
+                      <DelegateInArgument x:TypeArguments="sd:DataRow" Name="Row" />
+                    </ActivityAction.Argument>
+                    <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="304.888888888889,155.555555555556" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <Assign sap:VirtualizedContainerService.HintSize="263.111111111111,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_6">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:Object">
+                            <mca:CSharpReference x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpReference`1_12">Row["qtde"]</mca:CSharpReference>
+                          </OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:Object">
+                            <mca:CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_21">Double.Parse(Row["Qtd. Comercial"].ToString().Replace(",","."))</mca:CSharpValue>
+                          </InArgument>
+                        </Assign.Value>
+                      </Assign>
+                    </Sequence>
+                  </ActivityAction>
+                </ui:ForEachRow.Body>
+                <ui:ForEachRow.DataTable>
+                  <InArgument x:TypeArguments="sd:DataTable">
+                    <mca:CSharpValue x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpValue`1_20">Dt_ProdutosComprados</mca:CSharpValue>
+                  </InArgument>
+                </ui:ForEachRow.DataTable>
+              </ui:ForEachRow>
+              <d:GroupAggregation NullValue="{x:Null}" localNullValue="{x:Null}" AggregateColumn="qtde" AggregateType="Double" ContinueOnError="False" DisplayName="Group By Aggregation" GroupbyColumns="Cód. GTIN,Descrição,Unid. Comercial" sap:VirtualizedContainerService.HintSize="433.777777777778,22.2222222222222" sap2010:WorkflowViewState.IdRef="GroupAggregation_2">
+                <d:GroupAggregation.InputTable>
+                  <InArgument x:TypeArguments="sd:DataTable">
+                    <mca:CSharpValue x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpValue`1_22">Dt_ProdutosComprados</mca:CSharpValue>
+                  </InArgument>
+                </d:GroupAggregation.InputTable>
+                <d:GroupAggregation.Result>
+                  <OutArgument x:TypeArguments="sd:DataTable">
+                    <mca:CSharpReference x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpReference`1_13">Dt_ProdutosComprados</mca:CSharpReference>
+                  </OutArgument>
+                </d:GroupAggregation.Result>
+              </d:GroupAggregation>
+              <Assign sap:VirtualizedContainerService.HintSize="433.777777777778,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_7">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="sd:DataTable">
+                    <mca:CSharpReference x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpReference`1_14">out_ProdutosComprados</mca:CSharpReference>
+                  </OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="sd:DataTable">
+                    <mca:CSharpValue x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpValue`1_24">Dt_ProdutosComprados</mca:CSharpValue>
+                  </InArgument>
+                </Assign.Value>
+              </Assign>
+            </Sequence>
+            <uix:NGoToUrl DisplayName="Go To URL" sap:VirtualizedContainerService.HintSize="334.222222222222,83.5555555555556" sap2010:WorkflowViewState.IdRef="NGoToUrl_1" Version="V1">
+              <uix:NGoToUrl.Url>
+                <InArgument x:TypeArguments="x:String">
+                  <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_26">in_URLConsultaCFE</mca:CSharpValue>
+                </InArgument>
+              </uix:NGoToUrl.Url>
+            </uix:NGoToUrl>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="-9, -9, 1938, 1052" BrowserType="Chrome" IconBase64="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" InformativeScreenshot="ea8bc06736a88180a9a6b8f24a83df3d.png" Selector="&lt;html app='chrome.exe' title='Secretaria da Fazenda - Governo do Estado de São Paulo' /&gt;">
+          <uix:TargetApp.Url>
+            <InArgument x:TypeArguments="x:String">
+              <mca:CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_6">in_URLConsultaCFE</mca:CSharpValue>
+            </InArgument>
+          </uix:TargetApp.Url>
+        </uix:TargetApp>
+      </uix:NApplicationCard.TargetApp>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </uix:NApplicationCard>
+  </Sequence>
+</Activity>
